@@ -2,6 +2,33 @@ package com.peakFinder.java;
 
 public class PeakFinder {
 
+	public static void main(String[] args) {
+		int[][] x = { { 10, 8, 10, 10 }, { 14, 13, 12, 11 }, { 15, 9, 11, 21 }, { 16, 17, 19, 20 } };
+		System.out.println(findPeak(x));
+
+	}
+
+	public static int findPeak(int[][] arr) {
+		return findPeakHelper(0, arr[0].length, arr);
+	}
+
+	public static int findPeakHelper(int startColumn, int endColumn, int[][] arr) {
+		int middle = (startColumn + endColumn) / 2;
+		int maximum = findMaximum(middle, arr);
+
+		if (!(isPeak(maximum, middle, arr))) {
+			int bestNeigbour = getBestNeigbour(maximum, middle, arr);
+			int newStartColumn = bestNeigbour > middle ? bestNeigbour : startColumn;
+			int newEndColumn = bestNeigbour > middle ? endColumn : bestNeigbour;
+			if (newEndColumn < newStartColumn || newStartColumn == -1 || newEndColumn == -1) {
+				return -1;
+			}
+			return findPeakHelper(newStartColumn, newEndColumn, arr);
+		}
+
+		return arr[maximum][middle];
+	}
+
 	public static int findMaximum(int column, int[][] arr) {
 		int maximum = 0;
 
@@ -32,33 +59,6 @@ public class PeakFinder {
 		}
 
 		return -1;
-	}
-
-	public static int findPeakHelper(int startColumn, int endColumn, int[][] arr) {
-		int middle = (startColumn + endColumn) / 2;
-		int maximum = findMaximum(middle, arr);
-
-		if (!(isPeak(maximum, middle, arr))) {
-			int bestNeigbour = getBestNeigbour(maximum, middle, arr);
-			int newStartColumn = bestNeigbour > middle ? bestNeigbour : startColumn;
-			int newEndColumn = bestNeigbour > middle ? endColumn : bestNeigbour;
-			if (newEndColumn < newStartColumn || newStartColumn == -1 || newEndColumn == -1) {
-				return -1;
-			}
-			return findPeakHelper(newStartColumn, newEndColumn, arr);
-		}
-
-		return arr[maximum][middle];
-	}
-	
-	public static int findPeak(int[][] arr) {
-		return findPeakHelper(0, arr[0].length, arr);
-	}
-
-	public static void main(String[] args) {
-		int[][] x = { { 10, 8, 10, 10 }, { 14, 13, 12, 11 }, { 15, 9, 11, 21 }, { 16, 17, 19, 20 } };
-		System.out.println(findPeak(x));
-
 	}
 
 }
