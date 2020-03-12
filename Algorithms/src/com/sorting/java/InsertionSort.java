@@ -2,11 +2,10 @@ package com.sorting.java;
 
 import com.utilities.java.ArrayUtilities;
 
-
 public class InsertionSort {
 
     public static void main(String[] args) {
-        int[] x = {50, 70, 50, 5, 30, 4, 3, 21, 2, 1, 9, 80, 20, 15, 11, 21, 21};
+        int[] x = {11, 21, 5000, 5, 500, 500, 3, 21, 2, 1, 9, 80, 20, 15, 11, 21, 100};
         ArrayUtilities.printArray(vanillaInsertionSort(x));
         ArrayUtilities.printArray(binarySearchInsertionSort(x));
     }
@@ -45,8 +44,6 @@ public class InsertionSort {
             if (insertedNum >= arr[upperBound]) {
                 return lowerBound + 1;
             }
-            return lowerBound;
-        } else if (upperBound < lowerBound) {
             return lowerBound;
         } else if (insertedNum >= arr[middle]) {
             return binarySearch(middle + 1, upperBound, insertedNum, arr);

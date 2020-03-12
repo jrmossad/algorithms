@@ -46,7 +46,6 @@ public class TwoSum {
             return new int[]{-1};
         }
         int currentSum = arr[lowerBound] + arr[upperBound];
-        System.out.println(currentSum);
         if (currentSum == sum) {
             return new int[]{arr[lowerBound], arr[upperBound]};
         }

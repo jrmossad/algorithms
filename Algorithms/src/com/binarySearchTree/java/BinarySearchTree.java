@@ -22,7 +22,6 @@ public class BinarySearchTree {
                     }
                 } else if (current.getData() <= data) {
                     current = current.getRightChild();
-
                     if (current == null) {
                         parent.setRightChild(new Node(data));
                         return;
@@ -34,8 +33,8 @@ public class BinarySearchTree {
 
     public boolean delete(int data) {
         Node current = root;
-        Node substitute = null;
         Node parent = root;
+        Node substitute = null;
         boolean isLeftChild = true;
         while (current.getData() != data) {
             parent = current;
