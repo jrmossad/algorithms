@@ -5,7 +5,6 @@ import com.utilities.java.ArrayUtilities;
 public class MergeSort {
 
     public static void main(String[] args) {
-
         ArrayUtilities.printArray(mergeSort(new int[]{1, 4, 7, 2, 1}));
     }
 
