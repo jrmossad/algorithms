@@ -15,7 +15,6 @@ public class PeakFinder {
                 {3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1},
                 {2, 3, 4, 5, 6, 5, 4, 3, 2, 1, 0}};
         System.out.println(findPeak(x));
-
     }
 
     public static int findPeak(int[][] arr) {
@@ -25,7 +24,6 @@ public class PeakFinder {
     public static int findPeakHelper(int startColumn, int endColumn, int[][] arr) {
         int middle = (startColumn + endColumn) / 2;
         int maximum = findMaximum(middle, arr);
-
         if (!(isPeak(maximum, middle, arr))) {
             int bestNeighbour = getBestNeighbour(maximum, middle, arr);
             int newStartColumn = bestNeighbour > middle ? bestNeighbour : startColumn;
@@ -35,19 +33,16 @@ public class PeakFinder {
             }
             return findPeakHelper(newStartColumn, newEndColumn, arr);
         }
-
         return arr[maximum][middle];
     }
 
     public static int findMaximum(int column, int[][] arr) {
         int maximum = 0;
-
         for (int i = 1; i < arr.length; i++) {
             if (arr[maximum][column] < arr[i][column]) {
                 maximum = i;
             }
         }
-
         return maximum;
     }
 
@@ -55,7 +50,6 @@ public class PeakFinder {
         int element = arr[i][j];
         boolean right = ((j < arr[i].length - 1) && (element >= arr[i][j + 1])) || (j == arr[i].length - 1);
         boolean left = ((j > 0) && (element >= arr[i][j - 1])) || (j == 0);
-
         return right && left;
     }
 
@@ -67,8 +61,6 @@ public class PeakFinder {
         if ((j > 0) && (element < arr[i][j - 1])) {
             return j - 1;
         }
-
         return -1;
     }
-
 }

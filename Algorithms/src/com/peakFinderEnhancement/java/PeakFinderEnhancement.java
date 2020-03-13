@@ -23,13 +23,10 @@ public class PeakFinderEnhancement {
 
     public static int findPeakEnhancementHelper(int startRow, int endRow, int startColumn, int endColumn,
                                                 boolean rowSplit, int[][] arr) {
-
         int maximum;
-
         if (!rowSplit) {
             int middleColumn = (startColumn + endColumn) / 2;
             maximum = findMaximum(middleColumn, false, arr);
-
             if (!(isPeak(maximum, middleColumn, false, arr))) {
                 int bestNeighbour = getBestNeighbour(maximum, middleColumn, false, arr);
                 int newStartColumn = bestNeighbour > middleColumn ? bestNeighbour : startColumn;
@@ -41,10 +38,8 @@ public class PeakFinderEnhancement {
             }
             return arr[maximum][middleColumn];
         } else {
-
             int middleRow = (startRow + endRow) / 2;
             maximum = findMaximum(middleRow, true, arr);
-
             if (!(isPeak(middleRow, maximum, true, arr))) {
                 int bestNeighbour = getBestNeighbour(middleRow, maximum, true, arr);
                 int newStartRow = bestNeighbour > middleRow ? bestNeighbour : startRow;
@@ -56,12 +51,10 @@ public class PeakFinderEnhancement {
             }
             return arr[middleRow][maximum];
         }
-
     }
 
     public static int findMaximum(int x, boolean rowSplit, int[][] arr) {
         int maximum = 0;
-
         if (!rowSplit) {
             for (int i = 1; i < arr.length; i++) {
                 if (arr[maximum][x] < arr[i][x]) {
@@ -80,22 +73,18 @@ public class PeakFinderEnhancement {
 
     public static boolean isPeak(int i, int j, boolean rowSplit, int[][] arr) {
         int element = arr[i][j];
-
         if (!rowSplit) {
             boolean right = ((j < arr[i].length - 1) && (element >= arr[i][j + 1])) || (j == arr[i].length - 1);
             boolean left = ((j > 0) && (element >= arr[i][j - 1])) || (j == 0);
-
             return right && left;
         }
         boolean down = ((i < arr.length - 1) && (element >= arr[i + 1][j])) || (i == arr.length - 1);
         boolean top = ((i > 0) && (element >= arr[i - 1][j])) || (i == 0);
-
         return down && top;
     }
 
     public static int getBestNeighbour(int i, int j, boolean rowSplit, int[][] arr) {
         int element = arr[i][j];
-
         if (!rowSplit) {
             if ((j < arr[i].length - 1) && (element < arr[i][j + 1])) {
                 return j + 1;
@@ -111,9 +100,6 @@ public class PeakFinderEnhancement {
                 return i - 1;
             }
         }
-
         return -1;
     }
-
-
 }
