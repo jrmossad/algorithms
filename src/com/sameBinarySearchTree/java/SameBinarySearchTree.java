@@ -28,6 +28,46 @@ public class SameBinarySearchTree {
         System.out.println(sameBsts(arrA, arrB));
     }
 
+    public static boolean sameBstsOptimized(ArrayList<Integer> arrA, ArrayList<Integer> arrB) {
+        return sameBstsOptimizedHelper(arrA, arrB, 0, 0, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);
+    }
+
+    private static boolean sameBstsOptimizedHelper(ArrayList<Integer> arrA, ArrayList<Integer> arrB, int indexA,
+                                                   int indexB, double minValue, double maxValue) {
+        if (indexA == -1 || indexB == -1) {
+            return indexA == indexB;
+        }
+        if (!arrA.get(indexA).equals(arrB.get(indexB))) {
+            return false;
+        }
+        int leftSmallerIndexA = getIndexOfFirstSmaller(arrA, indexA, minValue);
+        int leftSmallerIndexB = getIndexOfFirstSmaller(arrB, indexB, minValue);
+        int rightBiggerIndexA = getIndexOfFirstBigger(arrA, indexA, maxValue);
+        int rightBiggerIndexB = getIndexOfFirstBigger(arrB, indexB, maxValue);
+        int currentValue = arrA.get(indexA);
+        boolean leftAreSame = sameBstsOptimizedHelper(arrA, arrB, leftSmallerIndexA, leftSmallerIndexB, currentValue, maxValue);
+        boolean rightAreSame = sameBstsOptimizedHelper(arrA, arrB, rightBiggerIndexA, rightBiggerIndexB, minValue, currentValue);
+        return leftAreSame && rightAreSame;
+    }
+
+    private static int getIndexOfFirstSmaller(ArrayList<Integer> arr, int index, double minValue) {
+        for (int i = index + 1; i < arr.size(); i++) {
+            if (arr.get(i) < arr.get(index) && arr.get(i) >= minValue) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    private static int getIndexOfFirstBigger(ArrayList<Integer> arr, int index, double maxValue) {
+        for (int i = index + 1; i < arr.size(); i++) {
+            if (arr.get(i) > arr.get(index) && arr.get(i) <= maxValue) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public static boolean sameBsts(ArrayList<Integer> arrA, ArrayList<Integer> arrB) {
         if (arrA.size() != arrB.size()) {
             return false;
