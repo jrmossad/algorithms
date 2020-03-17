@@ -25,7 +25,7 @@ public class SameBinarySearchTree {
         arrB.add(11);
         arrB.add(94);
         arrB.add(81);
-        System.out.println(sameBsts(arrA, arrB));
+        System.out.println(sameBstsOptimized(arrA, arrB));
     }
 
     public static boolean sameBstsOptimized(ArrayList<Integer> arrA, ArrayList<Integer> arrB) {
@@ -35,7 +35,7 @@ public class SameBinarySearchTree {
     private static boolean sameBstsOptimizedHelper(ArrayList<Integer> arrA, ArrayList<Integer> arrB, int indexA,
                                                    int indexB, double minValue, double maxValue) {
         if (indexA == -1 || indexB == -1) {
-            return indexA == indexB;
+            return (indexA == indexB);
         }
         if (!arrA.get(indexA).equals(arrB.get(indexB))) {
             return false;
@@ -44,7 +44,7 @@ public class SameBinarySearchTree {
         int leftSmallerIndexB = getIndexOfFirstSmaller(arrB, indexB, minValue);
         int rightBiggerIndexA = getIndexOfFirstBigger(arrA, indexA, maxValue);
         int rightBiggerIndexB = getIndexOfFirstBigger(arrB, indexB, maxValue);
-        int currentValue = arrA.get(indexA);
+        double currentValue = arrA.get(indexA);
         boolean leftAreSame = sameBstsOptimizedHelper(arrA, arrB, leftSmallerIndexA, leftSmallerIndexB, currentValue, maxValue);
         boolean rightAreSame = sameBstsOptimizedHelper(arrA, arrB, rightBiggerIndexA, rightBiggerIndexB, minValue, currentValue);
         return leftAreSame && rightAreSame;
@@ -61,7 +61,7 @@ public class SameBinarySearchTree {
 
     private static int getIndexOfFirstBigger(ArrayList<Integer> arr, int index, double maxValue) {
         for (int i = index + 1; i < arr.size(); i++) {
-            if (arr.get(i) > arr.get(index) && arr.get(i) <= maxValue) {
+            if (arr.get(i) >= arr.get(index) && arr.get(i) >= maxValue) {
                 return i;
             }
         }
