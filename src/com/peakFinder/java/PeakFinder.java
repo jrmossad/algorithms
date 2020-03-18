@@ -3,7 +3,7 @@ package com.peakFinder.java;
 public class PeakFinder {
 
     public static void main(String[] args) {
-        int[][] x = {{4, 5, 6, 7, 8, 7, 6, 5, 4, 3, 2},
+        int[][] arr = {{4, 5, 6, 7, 8, 7, 6, 5, 4, 3, 2},
                 {5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3},
                 {6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4},
                 {7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5},
@@ -14,7 +14,7 @@ public class PeakFinder {
                 {4, 5, 6, 7, 8, 7, 6, 5, 4, 3, 2},
                 {3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1},
                 {2, 3, 4, 5, 6, 5, 4, 3, 2, 1, 0}};
-        System.out.println(findPeak(x));
+        System.out.println(findPeak(arr));
     }
 
     public static int findPeak(int[][] arr) {
