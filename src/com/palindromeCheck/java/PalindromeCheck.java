@@ -10,7 +10,7 @@ public class PalindromeCheck {
         return palindromeCheckRecursiveHelper(string, 0, string.length() - 1);
     }
 
-    public static boolean palindromeCheckRecursiveHelper(String string, int i, int j) {
+    private static boolean palindromeCheckRecursiveHelper(String string, int i, int j) {
         if (i >= j) {
             return true;
         }
