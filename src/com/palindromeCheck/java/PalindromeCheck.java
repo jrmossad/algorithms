@@ -3,12 +3,19 @@ package com.palindromeCheck.java;
 public class PalindromeCheck {
 
     public static void main(String[] args) {
-        System.out.println(palindromeCheckReverseArray("racecara"));
+        System.out.println(palindromeCheckRecursive("racecara"));
     }
 
-//    public static boolean palindromeCheckRecursive(String string) {
-//
-//    }
+    public static boolean palindromeCheckRecursive(String string) {
+        return palindromeCheckRecursiveHelper(string, 0, string.length() - 1);
+    }
+
+    public static boolean palindromeCheckRecursiveHelper(String string, int i, int j) {
+        if (i >= j) {
+            return true;
+        }
+        return string.charAt(i) == string.charAt(j) && palindromeCheckRecursiveHelper(string, i + 1, j - 1);
+    }
 
     public static boolean palindromeCheckReverse(String string) {
         String newString = new StringBuilder(string).reverse().toString();
