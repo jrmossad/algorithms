@@ -5,9 +5,9 @@ import com.utilities.java.ArrayUtilities;
 public class InsertionSort {
 
     public static void main(String[] args) {
-        int[] x = {11, 21, 5000, 5, 500, 500, 3, 21, 2, 1, 9, 80, 20, 15, 11, 21, 100};
-        ArrayUtilities.printArray(vanillaInsertionSort(x));
-        ArrayUtilities.printArray(binarySearchInsertionSort(x));
+        int[] arr = {11, 21, 5000, 5, 500, 500, 3, 21, 2, 1, 9, 80, 20, 15, 11, 21, 100};
+        ArrayUtilities.printArray(vanillaInsertionSort(arr));
+        ArrayUtilities.printArray(binarySearchInsertionSort(arr));
     }
 
     public static int[] vanillaInsertionSort(int[] arr) {
