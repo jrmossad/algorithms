@@ -3,7 +3,12 @@ package com.palindromeCheck.java;
 public class PalindromeCheck {
 
     public static void main(String[] args) {
-        System.out.println(palindromeCheck(""));
+        System.out.println(palindromeCheckReverse("racecara"));
+    }
+
+    public static boolean palindromeCheckReverse(String string) {
+        String newString = new StringBuilder(string).reverse().toString();
+        return string.equals(newString);
     }
 
     public static boolean palindromeCheck(String string) {
