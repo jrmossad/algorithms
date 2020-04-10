@@ -1,15 +1,42 @@
 package com.binarySearchTree.java;
 
 import com.utilities.java.*;
+
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class BinarySearchTree {
 
     private Node root;
+    private Queue<Node> nodesQueue;
+
+    public BinarySearchTree() {
+        nodesQueue = new LinkedList<>();
+        root = null;
+    }
+
+    public Node getRoot() {
+        return root;
+    }
+
+    public void messInsert(int data) {
+        Node newNode = new Node(data);
+        nodesQueue.add(newNode);
+        if (root == null) {
+            root = newNode;
+        } else if (nodesQueue.peek().getLeftChild() == null) {
+            nodesQueue.peek().setLeftChild(newNode);
+        } else {
+            nodesQueue.peek().setRightChild(newNode);
+            nodesQueue.remove(nodesQueue.peek());
+        }
+    }
 
     public void insert(int data) {
+        Node newNode = new Node(data);
         if (root == null) {
-            root = new Node(data);
+            root = newNode;
         } else {
             Node current = root;
             Node parent;
@@ -18,13 +45,13 @@ public class BinarySearchTree {
                 if (current.getData() > data) {
                     current = current.getLeftChild();
                     if (current == null) {
-                        parent.setLeftChild(new Node(data));
+                        parent.setLeftChild(newNode);
                         return;
                     }
                 } else if (current.getData() <= data) {
                     current = current.getRightChild();
                     if (current == null) {
-                        parent.setRightChild(new Node(data));
+                        parent.setRightChild(newNode);
                         return;
                     }
                 }
