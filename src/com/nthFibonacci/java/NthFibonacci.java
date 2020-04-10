@@ -26,12 +26,11 @@ public class NthFibonacci {
     }
 
     private static int getNthFibonacciHashtableHelper(int number, Hashtable<Integer, Integer> memoize) {
-        if (memoize.containsKey(number)) {
-            return memoize.get(number);
-        } else {
-            memoize.put(number, getNthFibonacciHashtableHelper(number - 1, memoize) + getNthFibonacciHashtableHelper(number - 2, memoize));
-            return memoize.get(number);
+        if (!memoize.containsKey(number)) {
+            memoize.put(number, getNthFibonacciHashtableHelper(number - 1, memoize) +
+                    getNthFibonacciHashtableHelper(number - 2, memoize));
         }
+        return memoize.get(number);
     }
 
     public static int getNthFibonacciIterative(int number) {

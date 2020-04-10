@@ -16,6 +16,10 @@ public class BinarySearchTree {
         root = null;
     }
 
+    private void setRoot(Node node) {
+        root = node;
+    }
+
     public Node getRoot() {
         return root;
     }
@@ -24,7 +28,7 @@ public class BinarySearchTree {
         Node newNode = new Node(data);
         nodesQueue.add(newNode);
         if (getRoot() == null) {
-            root = newNode;
+            setRoot(newNode);
         } else if (nodesQueue.peek().getLeftChild() == null) {
             nodesQueue.peek().setLeftChild(newNode);
         } else {
@@ -36,7 +40,7 @@ public class BinarySearchTree {
     public void insert(int data) {
         Node newNode = new Node(data);
         if (getRoot() == null) {
-            root = newNode;
+            setRoot(newNode);
         } else {
             Node current = getRoot();
             Node parent;
@@ -88,7 +92,7 @@ public class BinarySearchTree {
             substitute.setLeftChild(current.getLeftChild());
         }
         if (current == getRoot()) {
-            root = substitute;
+            setRoot(substitute);
         } else if (isLeftChild) {
             parent.setLeftChild(substitute);
         } else {
