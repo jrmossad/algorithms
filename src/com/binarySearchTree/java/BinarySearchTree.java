@@ -1,7 +1,6 @@
 package com.binarySearchTree.java;
 
 import com.utilities.java.*;
-
 import java.util.ArrayList;
 
 public class BinarySearchTree {
