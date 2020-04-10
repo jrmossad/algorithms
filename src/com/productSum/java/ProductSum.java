@@ -27,13 +27,13 @@ public class ProductSum {
     public static int productSum(ArrayList numbers, int multiplier) {
         int sum = 0;
         for (int i = 0; i < numbers.size(); i++) {
-            if (numbers.get(i).getClass().getSimpleName().equals("ArrayList")) {
-                sum += productSum((ArrayList) numbers.get(i), multiplier + 1);
+            Object item = numbers.get(i);
+            if (item.getClass().getSimpleName().equals("ArrayList")) {
+                sum += productSum((ArrayList) item, multiplier + 1);
             } else {
-                sum += (int) numbers.get(i);
+                sum += (int) item;
             }
         }
         return sum * multiplier;
     }
-
 }
