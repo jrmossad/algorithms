@@ -2,6 +2,8 @@ package com.binarySearchTree.java;
 
 import com.utilities.java.*;
 
+import java.util.ArrayList;
+
 public class BinarySearchTree {
 
     private Node root;
@@ -161,5 +163,44 @@ public class BinarySearchTree {
             }
         }
         return closest;
+    }
+
+    public ArrayList<Integer> branchSum() {
+        ArrayList<Integer> sums = new ArrayList<>();
+        branchSumHelper(root, 0, sums);
+        return sums;
+    }
+
+    private void branchSumHelper(Node current, int currentSum, ArrayList<Integer> sums) {
+        if (current == null) {
+            return;
+        }
+        currentSum += current.getData();
+        if (current.getRightChild() == null && current.getLeftChild() == null) {
+            sums.add(currentSum);
+            return;
+        }
+        branchSumHelper(current.getLeftChild(), currentSum, sums);
+        branchSumHelper(current.getRightChild(), currentSum, sums);
+    }
+
+    public static void main(String[] args) {
+        BinarySearchTree binarySearchTree = new BinarySearchTree();
+        binarySearchTree.insert(10);
+        binarySearchTree.insert(13);
+        binarySearchTree.insert(5);
+        binarySearchTree.insert(8);
+        binarySearchTree.insert(7);
+        binarySearchTree.insert(6);
+        binarySearchTree.insert(9);
+        binarySearchTree.insert(3);
+        binarySearchTree.insert(4);
+        binarySearchTree.insert(2);
+        binarySearchTree.insert(1);
+        binarySearchTree.insert(16);
+        binarySearchTree.insert(14);
+        binarySearchTree.insert(11);
+        binarySearchTree.insert(12);
+        System.out.println(binarySearchTree.branchSum());
     }
 }
