@@ -3,7 +3,7 @@ package com.numberOfWaysToMakeChange.java;
 public class NumberOfWaysToMakeChange {
 
     public static void main(String[] args) {
-        int[] arr = {1, 5, 10, 25};
+        int[] arr = {1, 5, 10, 25, 2};
         System.out.println(numberOfWaysToMakeChange(arr, 10));
     }
 
