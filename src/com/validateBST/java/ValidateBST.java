@@ -38,6 +38,6 @@ public class ValidateBST {
             return false;
         }
         return (validateBSTHelper(current.getLeftChild(), minValue, current.getData()) &&
-                validateBSTHelper(current.getRightChild(), current.getData(), maxValue));   
+                validateBSTHelper(current.getRightChild(), current.getData(), maxValue));
     }
 }

@@ -23,7 +23,7 @@ public class BinarySearchTree {
     public void messInsert(int data) {
         Node newNode = new Node(data);
         nodesQueue.add(newNode);
-        if (root == null) {
+        if (getRoot() == null) {
             root = newNode;
         } else if (nodesQueue.peek().getLeftChild() == null) {
             nodesQueue.peek().setLeftChild(newNode);
@@ -35,10 +35,10 @@ public class BinarySearchTree {
 
     public void insert(int data) {
         Node newNode = new Node(data);
-        if (root == null) {
+        if (getRoot() == null) {
             root = newNode;
         } else {
-            Node current = root;
+            Node current = getRoot();
             Node parent;
             while (true) {
                 parent = current;
@@ -60,8 +60,8 @@ public class BinarySearchTree {
     }
 
     public boolean delete(int data) {
-        Node current = root;
-        Node parent = root;
+        Node current = getRoot();
+        Node parent = getRoot();
         Node substitute = null;
         boolean isLeftChild = true;
         while (current.getData() != data) {
@@ -87,7 +87,7 @@ public class BinarySearchTree {
             substitute = getSuccessor(current);
             substitute.setLeftChild(current.getLeftChild());
         }
-        if (current == root) {
+        if (current == getRoot()) {
             root = substitute;
         } else if (isLeftChild) {
             parent.setLeftChild(substitute);
@@ -114,8 +114,8 @@ public class BinarySearchTree {
     }
 
     public Node minimum() {
-        Node current = root;
-        Node last = root;
+        Node current = getRoot();
+        Node last = getRoot();
         while (current != null) {
             last = current;
             current = current.getLeftChild();
@@ -124,8 +124,8 @@ public class BinarySearchTree {
     }
 
     public Node maximum() {
-        Node current = root;
-        Node last = root;
+        Node current = getRoot();
+        Node last = getRoot();
         while (current != null) {
             last = current;
             current = current.getRightChild();
@@ -134,7 +134,7 @@ public class BinarySearchTree {
     }
 
     public boolean search(int data) {
-        return searchHelper(data, root);
+        return searchHelper(data, getRoot());
     }
 
     private boolean searchHelper(int data, Node current) {
@@ -151,7 +151,7 @@ public class BinarySearchTree {
     }
 
     public int findClosestValueBSTRecursive(int data) {
-        return findClosestValueBSTRecursiveHelper(data, root, root.getData());
+        return findClosestValueBSTRecursiveHelper(data, getRoot(), getRoot().getData());
     }
 
     private int findClosestValueBSTRecursiveHelper(int data, Node current, int closest) {
@@ -171,11 +171,8 @@ public class BinarySearchTree {
     }
 
     public int findClosestValueBSTIterative(int data) {
-        return findClosestValueBSTIterativeHelper(data, root, root.getData());
-    }
-
-    private int findClosestValueBSTIterativeHelper(int data, Node root, int closest) {
-        Node current = root;
+        Node current = getRoot();
+        int closest = current.getData();
         while (current != null) {
             if (Math.abs((current.getData() - data)) < Math.abs((closest - data))) {
                 closest = current.getData();
@@ -193,7 +190,7 @@ public class BinarySearchTree {
 
     public ArrayList<Integer> branchSum() {
         ArrayList<Integer> sums = new ArrayList<>();
-        branchSumHelper(root, 0, sums);
+        branchSumHelper(getRoot(), 0, sums);
         return sums;
     }
 
@@ -210,23 +207,68 @@ public class BinarySearchTree {
         branchSumHelper(current.getRightChild(), currentSum, sums);
     }
 
+    public void inOrderTraversal() {
+        inOrderTraversalHelper(getRoot());
+        System.out.println();
+    }
+
+    private void inOrderTraversalHelper(Node current) {
+        if (current == null) {
+            return;
+        }
+        inOrderTraversalHelper(current.getLeftChild());
+        System.out.print(current.getData() + " ");
+        inOrderTraversalHelper(current.getRightChild());
+    }
+
+    public void preOrderTraversal() {
+        preOrderTraversalHelper(getRoot());
+        System.out.println();
+    }
+
+    private void preOrderTraversalHelper(Node current) {
+        if (current == null) {
+            return;
+        }
+        System.out.print(current.getData() + " ");
+        preOrderTraversalHelper(current.getLeftChild());
+        preOrderTraversalHelper(current.getRightChild());
+    }
+
+    public void postOrderTraversal() {
+        postOrderTraversalHelper(getRoot());
+        System.out.println();
+    }
+
+    private void postOrderTraversalHelper(Node current) {
+        if (current == null) {
+            return;
+        }
+        postOrderTraversalHelper(current.getLeftChild());
+        postOrderTraversalHelper(current.getRightChild());
+        System.out.print(current.getData() + " ");
+    }
+
     public static void main(String[] args) {
-        BinarySearchTree binarySearchTree = new BinarySearchTree();
-        binarySearchTree.insert(10);
-        binarySearchTree.insert(13);
-        binarySearchTree.insert(5);
-        binarySearchTree.insert(8);
-        binarySearchTree.insert(7);
-        binarySearchTree.insert(6);
-        binarySearchTree.insert(9);
-        binarySearchTree.insert(3);
-        binarySearchTree.insert(4);
-        binarySearchTree.insert(2);
-        binarySearchTree.insert(1);
-        binarySearchTree.insert(16);
-        binarySearchTree.insert(14);
-        binarySearchTree.insert(11);
-        binarySearchTree.insert(12);
-        System.out.println(binarySearchTree.branchSum());
+        BinarySearchTree tree = new BinarySearchTree();
+        tree.insert(10);
+        tree.insert(13);
+        tree.insert(5);
+        tree.insert(8);
+        tree.insert(7);
+        tree.insert(6);
+        tree.insert(9);
+        tree.insert(3);
+        tree.insert(4);
+        tree.insert(2);
+        tree.insert(1);
+        tree.insert(16);
+        tree.insert(14);
+        tree.insert(11);
+        tree.insert(12);
+        tree.inOrderTraversal();
+        tree.preOrderTraversal();
+        tree.postOrderTraversal();
+        System.out.println(tree.branchSum());
     }
 }
