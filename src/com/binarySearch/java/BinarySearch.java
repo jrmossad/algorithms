@@ -42,5 +42,4 @@ public class BinarySearch {
         }
         return binarySearchRecursiveHelper(arr, target, middle + 1, upperBound);
     }
-
 }

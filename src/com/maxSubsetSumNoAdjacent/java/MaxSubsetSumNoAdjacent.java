@@ -45,4 +45,3 @@ public class MaxSubsetSumNoAdjacent {
         return maxSums;
     }
 }
-

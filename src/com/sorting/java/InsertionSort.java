@@ -50,5 +50,4 @@ public class InsertionSort {
         }
         return binarySearch(lowerBound, middle - 1, insertedNum, arr);
     }
-
 }
