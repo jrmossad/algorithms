@@ -10,7 +10,7 @@ public class SmallestDifference {
     public static void main(String[] args) {
         int[] arrA = {-1, 5, 10, 20, 28, 3};
         int[] arrB = {26, 134, 135, 15, 157};
-        ArrayUtilities.printArray(smallestDifference(arrA, arrB));
+        ArrayUtilities.print1DArray(smallestDifference(arrA, arrB));
     }
 
     public static int[] smallestDifference(int[] arrA, int[] arrB) {

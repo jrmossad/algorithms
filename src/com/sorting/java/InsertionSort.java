@@ -6,8 +6,8 @@ public class InsertionSort {
 
     public static void main(String[] args) {
         int[] arr = {11, 21, 5000, 5, 500, 500, 3, 21, 2, 1, 9, 80, 20, 15, 11, 21, 100};
-        ArrayUtilities.printArray(vanillaInsertionSort(arr));
-        ArrayUtilities.printArray(binarySearchInsertionSort(arr));
+        ArrayUtilities.print1DArray(vanillaInsertionSort(arr));
+        ArrayUtilities.print1DArray(binarySearchInsertionSort(arr));
     }
 
     public static int[] vanillaInsertionSort(int[] arr) {

@@ -2,13 +2,11 @@ package com.sorting.java;
 
 import com.utilities.java.ArrayUtilities;
 
-import java.util.ArrayList;
-
 public class CountingSort {
 
     public static void main(String[] args) {
         int[] arr = {7, 3, 1, 2, 5};
-        ArrayUtilities.printArray(countingSort(arr));
+        ArrayUtilities.print1DArray(countingSort(arr));
     }
 
     public static int[] countingSort(int[] arr) {

@@ -7,7 +7,7 @@ public class MoveElementToEnd {
     public static void main(String[] args) {
         int[] arr = {2, 1, 2, 2, 2, 3, 4, 2};
         moveElementToEnd(arr, 2);
-        ArrayUtilities.printArray(arr);
+        ArrayUtilities.print1DArray(arr);
     }
 
     public static void moveElementToEnd(int[] arr, int value) {

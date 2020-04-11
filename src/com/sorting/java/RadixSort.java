@@ -2,13 +2,11 @@ package com.sorting.java;
 
 import com.utilities.java.ArrayUtilities;
 
-import java.util.Arrays;
-
 public class RadixSort {
 
     public static void main(String[] args) {
         int[] arr = {170, 45, 75, 90, 802, 24, 2, 66};
-        ArrayUtilities.printArray(radixSort(arr));
+        ArrayUtilities.print1DArray(radixSort(arr));
     }
 
     public static int[] radixSort(int[] arr) {

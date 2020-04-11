@@ -6,7 +6,7 @@ public class ThreeLargestNumbers {
 
     public static void main(String[] args) {
         int[] arr = {141, 1, 17, -7, -17, -27, 18, 541, 8, 7, 7};
-        ArrayUtilities.printArray(findThreeLargestNumbers(arr));
+        ArrayUtilities.print1DArray(findThreeLargestNumbers(arr));
     }
 
     public static int[] findThreeLargestNumbers(int[] arr) {

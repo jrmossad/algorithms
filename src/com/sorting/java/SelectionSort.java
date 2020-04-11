@@ -6,7 +6,7 @@ public class SelectionSort {
 
     public static void main(String[] args) {
         int[] arr = {8, 1, 4, 3, 5, 2, 7};
-        ArrayUtilities.printArray(selectionSortMin(arr));
+        ArrayUtilities.print1DArray(selectionSortMin(arr));
     }
 
     public static int[] selectionSortMax(int[] arr) {

@@ -8,7 +8,7 @@ public class TwoSum {
 
     public static void main(String[] args) {
         int[] arr = {2, 3, 6, 3, 4};
-        ArrayUtilities.printArray(twoSumHashTable(arr, 8));
+        ArrayUtilities.print1DArray(twoSumHashTable(arr, 8));
     }
 
     public static int[] twoSumHashTable(int[] arr, int sum) {
