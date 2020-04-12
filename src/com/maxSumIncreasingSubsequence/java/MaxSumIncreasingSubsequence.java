@@ -1,7 +1,5 @@
 package com.maxSumIncreasingSubsequence.java;
 
-import com.utilities.java.ArrayUtilities;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
