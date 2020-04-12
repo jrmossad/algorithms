@@ -2,8 +2,6 @@ package com.subArraySort.java;
 
 import com.utilities.java.ArrayUtilities;
 
-import java.util.ArrayList;
-
 public class SubArraySort {
 
     public static void main(String[] args) {

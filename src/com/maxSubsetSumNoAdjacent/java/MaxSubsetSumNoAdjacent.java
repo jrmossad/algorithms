@@ -35,7 +35,7 @@ public class MaxSubsetSumNoAdjacent {
             return Math.max(arr[0], arr[1]);
         }
         int first = arr[0];
-        int second = arr[1];
+        int second = Math.max(arr[1], arr[0]);
         int maxSums = second;
         for (int i = 2; i < arr.length; i++) {
             maxSums = Math.max(second, arr[i] + first);
