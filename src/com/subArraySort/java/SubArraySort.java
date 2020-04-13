@@ -10,7 +10,6 @@ public class SubArraySort {
     }
 
     public static int[] subArraySort(int[] arr) {
-        int[] indices = new int[2];
         int minimum = Integer.MAX_VALUE;
         int maximum = Integer.MIN_VALUE;
         for (int i = 0; i < arr.length; i++) {

@@ -1,7 +1,7 @@
 package com.heap.java;
 
-import com.utilities.java.Node;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class MaxHeap {
 

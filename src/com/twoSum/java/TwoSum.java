@@ -1,8 +1,9 @@
 package com.twoSum.java;
 
-import java.util.Arrays;
-import java.util.Hashtable;
 import com.utilities.java.ArrayUtilities;
+
+import java.util.Arrays;
+import java.util.HashMap;
 
 public class TwoSum {
 
@@ -12,7 +13,7 @@ public class TwoSum {
     }
 
     public static int[] twoSumHashTable(int[] arr, int sum) {
-        Hashtable<Integer, Boolean> values = new Hashtable<>();
+        HashMap<Integer, Boolean> values = new HashMap<>();
         for (int x : arr) {
             int y = sum - x;
             if (values.containsKey(y)) {

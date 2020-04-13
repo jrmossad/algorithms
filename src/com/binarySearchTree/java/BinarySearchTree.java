@@ -1,6 +1,6 @@
 package com.binarySearchTree.java;
 
-import com.utilities.java.*;
+import com.utilities.java.Node;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -263,7 +263,7 @@ public class BinarySearchTree {
         System.out.print(current.getData() + " ");
     }
 
-    public void inOrderTraversalIterative() {
+    public void inOrderTraversalIteratively() {
         Node previous = null;
         Node current = getRoot();
         Node nextNode = null;

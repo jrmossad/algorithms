@@ -1,7 +1,5 @@
 package com.levenshteinDistance.java;
 
-import java.util.Arrays;
-
 public class LevenshteinDistance {
 
     public static void main(String[] args) {

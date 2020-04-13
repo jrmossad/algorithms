@@ -17,7 +17,7 @@ public class ThreeLargestNumbers {
             } else if (value > result[1]) {
                 shift(result, value, 1);
             } else if (value > result[0]) {
-                shift(result, value, 0  );
+                shift(result, value, 0);
             }
         }
         return result;
