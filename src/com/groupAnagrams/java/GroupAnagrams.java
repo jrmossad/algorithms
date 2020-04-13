@@ -3,7 +3,6 @@ package com.groupAnagrams.java;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
 
 public class GroupAnagrams {
 
@@ -20,9 +19,9 @@ public class GroupAnagrams {
             groups.add(arr[i]);
             anagrams.put(sortedWords, groups);
         }
-        for (Map.Entry<String, ArrayList<String>> entry : anagrams.entrySet()) {
-            for (int i = 0; i < entry.getValue().size(); i++) {
-                System.out.print(entry.getValue().get(i) + " ");
+        for (ArrayList<String> value : anagrams.values()) {
+            for (int i = 0; i < value.size(); i++) {
+                System.out.print(value.get(i) + " ");
             }
             System.out.println();
         }
