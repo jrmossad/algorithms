@@ -67,7 +67,7 @@ public class BinarySearchTree {
 
     public boolean delete(int data) {
         Node current = getRoot();
-        Node parent = getRoot();
+        Node parent = null;
         Node substitute = null;
         boolean isLeftChild = true;
         while (current.getData() != data) {
@@ -96,14 +96,12 @@ public class BinarySearchTree {
         }
         if (current == getRoot()) {
             setRoot(substitute);
-            substitute.setParent(null);
         } else if (isLeftChild) {
             parent.setLeftChild(substitute);
-            substitute.setParent(parent);
         } else {
             parent.setRightChild(substitute);
-            substitute.setParent(parent);
         }
+        substitute.setParent(parent);
         return true;
     }
 
@@ -164,11 +162,11 @@ public class BinarySearchTree {
         return searchHelper(data, current.getRightChild());
     }
 
-    public int findClosestValueBSTRecursive(int data) {
-        return findClosestValueBSTRecursiveHelper(data, getRoot(), getRoot().getData());
+    public int findClosestValueBSTRecursively(int data) {
+        return findClosestValueBSTRecursivelyHelper(data, getRoot(), getRoot().getData());
     }
 
-    private int findClosestValueBSTRecursiveHelper(int data, Node current, int closest) {
+    private int findClosestValueBSTRecursivelyHelper(int data, Node current, int closest) {
         if (current == null) {
             return closest;
         }
@@ -176,15 +174,15 @@ public class BinarySearchTree {
             closest = current.getData();
         }
         if (data < current.getData()) {
-            return findClosestValueBSTRecursiveHelper(data, current.getLeftChild(), closest);
+            return findClosestValueBSTRecursivelyHelper(data, current.getLeftChild(), closest);
         } else if (data > current.getData()) {
-            return findClosestValueBSTRecursiveHelper(data, current.getRightChild(), closest);
+            return findClosestValueBSTRecursivelyHelper(data, current.getRightChild(), closest);
         } else {
             return closest;
         }
     }
 
-    public int findClosestValueBSTIterative(int data) {
+    public int findClosestValueBSTIteratively(int data) {
         Node current = getRoot();
         int closest = current.getData();
         while (current != null) {
