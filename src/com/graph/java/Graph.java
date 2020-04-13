@@ -3,7 +3,6 @@ package com.graph.java;
 import com.utilities.java.Edge;
 import com.utilities.java.Vertex;
 
-import java.beans.VetoableChangeListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -79,6 +78,32 @@ public class Graph {
         return null;
     }
 
+    public ArrayList<Vertex> shortestPath(Vertex start, Vertex end) {
+        return DFS(start, end, new ArrayList<>(), null);
+    }
+
+    private ArrayList<Vertex> DFS(Vertex start, Vertex end, ArrayList<Vertex> path, ArrayList<Vertex> shortest) {
+        path.add(start);
+        if (start.equals(end)) {
+            return path;
+        }
+        for(Vertex current : childrenOf(start)) {
+            if(!path.contains(current)) {
+                if(shortest == null || shortest.size() > path.size()) {
+                    ArrayList<Vertex> currentPath = new ArrayList<>();
+                    for (Vertex vertex : path) {
+                        currentPath.add(vertex);
+                    }
+                    ArrayList<Vertex> newPath = DFS(current, end, currentPath, shortest);
+                    if(newPath != null) {
+                        shortest = newPath;
+                    }
+                }
+            }
+        }
+        return shortest;
+    }
+
     public static void main(String[] args) {
         Graph graph = new Graph();
         Vertex vertex1 = new Vertex("A");
@@ -100,6 +125,7 @@ public class Graph {
         Edge edge7 = new Edge(vertex7, vertex8);
         Edge edge8 = new Edge(vertex7, vertex9);
         Edge edge9 = new Edge(vertex9, vertex10);
+        Edge edge10 = new Edge(vertex1, vertex5);
         graph.addVertex("A");
         graph.addVertex("B");
         graph.addVertex("C");
@@ -119,7 +145,8 @@ public class Graph {
         graph.addEdge(edge7);
         graph.addEdge(edge8);
         graph.addEdge(edge9);
-        ArrayList<Vertex> path = graph.BFS(vertex1, vertex5);
+        graph.addEdge(edge10);
+        ArrayList<Vertex> path = graph.shortestPath(vertex1, vertex5);
         for (Vertex vertex : path) {
             System.out.print(vertex.getName() + " ");
         }
