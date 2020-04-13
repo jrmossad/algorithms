@@ -32,8 +32,7 @@ public class BinarySearchTree {
         } else if (nodesQueue.peek().getLeftChild() == null) {
             nodesQueue.peek().setLeftChild(newNode);
         } else {
-            nodesQueue.peek().setRightChild(newNode);
-            nodesQueue.remove(nodesQueue.peek());
+            nodesQueue.remove().setRightChild(newNode);
         }
     }
 
