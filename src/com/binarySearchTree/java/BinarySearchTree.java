@@ -92,9 +92,11 @@ public class BinarySearchTree {
         } else {
             substitute = getSuccessor(current);
             substitute.setLeftChild(current.getLeftChild());
+            current.getLeftChild().setParent(substitute);
         }
         if (current == getRoot()) {
             setRoot(substitute);
+            substitute.setParent(null);
         } else if (isLeftChild) {
             parent.setLeftChild(substitute);
             substitute.setParent(parent);
@@ -261,8 +263,27 @@ public class BinarySearchTree {
         System.out.print(current.getData() + " ");
     }
 
-//    public void inOrderTraversalIterative() {
-//        inOrderTraversalHelper(getRoot());
-//        System.out.println();
-//    }
+    public void inOrderTraversalIterative() {
+        Node previous = null;
+        Node current = getRoot();
+        Node nextNode = null;
+        while (current != null) {
+            if (previous == null || previous == current.getParent()) {
+                if (current.getLeftChild() != null) {
+                    nextNode = current.getLeftChild();
+                } else {
+                    System.out.print(current.getData() + " ");
+                    nextNode = current.getRightChild() != null ? current.getRightChild() : current.getParent();
+                }
+            } else if (previous == current.getLeftChild()) {
+                System.out.print(current.getData() + " ");
+                nextNode = current.getRightChild() != null ? current.getRightChild() : current.getParent();
+            } else {
+                nextNode = current.getParent();
+            }
+            previous = current;
+            current = nextNode;
+        }
+        System.out.println();
+    }
 }
