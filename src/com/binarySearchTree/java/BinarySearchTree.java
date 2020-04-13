@@ -26,6 +26,7 @@ public class BinarySearchTree {
 
     public void messInsert(int data) {
         Node newNode = new Node(data);
+        newNode.setParent(nodesQueue.isEmpty() ? null : nodesQueue.peek());
         nodesQueue.add(newNode);
         if (getRoot() == null) {
             setRoot(newNode);
@@ -49,12 +50,14 @@ public class BinarySearchTree {
                     current = current.getLeftChild();
                     if (current == null) {
                         parent.setLeftChild(newNode);
+                        newNode.setParent(parent);
                         return;
                     }
                 } else if (current.getData() <= data) {
                     current = current.getRightChild();
                     if (current == null) {
                         parent.setRightChild(newNode);
+                        newNode.setParent(parent);
                         return;
                     }
                 }
@@ -94,8 +97,10 @@ public class BinarySearchTree {
             setRoot(substitute);
         } else if (isLeftChild) {
             parent.setLeftChild(substitute);
+            substitute.setParent(parent);
         } else {
             parent.setRightChild(substitute);
+            substitute.setParent(parent);
         }
         return true;
     }
@@ -111,7 +116,11 @@ public class BinarySearchTree {
         }
         if (successor != delNode.getRightChild()) {
             successorParent.setLeftChild(successor.getRightChild());
+            if (successor.getRightChild() != null) {
+                successor.getRightChild().setParent(successorParent);
+            }
             successor.setRightChild(delNode.getRightChild());
+            delNode.getRightChild().setParent(successor);
         }
         return successor;
     }
@@ -251,4 +260,9 @@ public class BinarySearchTree {
         postOrderTraversalHelper(current.getRightChild());
         System.out.print(current.getData() + " ");
     }
+
+//    public void inOrderTraversalIterative() {
+//        inOrderTraversalHelper(getRoot());
+//        System.out.println();
+//    }
 }
