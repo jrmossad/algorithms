@@ -16,14 +16,14 @@ public class Stack<T> {
     }
 
     public T pop() {
-        if (stack.isEmpty()) {
+        if (isEmpty()) {
             return null;
         }
         return stack.remove(stack.size() - 1);
     }
 
     public T peak() {
-        if (stack.isEmpty()) {
+        if (isEmpty()) {
             return null;
         }
         return stack.get(stack.size() - 1);
