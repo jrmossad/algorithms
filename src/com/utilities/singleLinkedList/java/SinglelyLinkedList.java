@@ -1,10 +1,10 @@
 package com.utilities.singleLinkedList.java;
 
-public class SingleLinkedList {
+public class SinglelyLinkedList {
 
     private Link first;
 
-    public SingleLinkedList() {
+    public SinglelyLinkedList() {
         first = null;
     }
 
@@ -73,14 +73,14 @@ public class SingleLinkedList {
     }
 
     public static void main(String[] args) {
-        SingleLinkedList singleLinkedList = new SingleLinkedList();
-        singleLinkedList.insert(5);
-        singleLinkedList.insert(6);
-        singleLinkedList.insert(7);
-        singleLinkedList.remove(5);
-        singleLinkedList.insert(5);
-        singleLinkedList.remove(7);
-        Link current = singleLinkedList.getFirst();
+        SinglelyLinkedList singlelyLinkedList = new SinglelyLinkedList();
+        singlelyLinkedList.insert(5);
+        singlelyLinkedList.insert(6);
+        singlelyLinkedList.insert(7);
+        singlelyLinkedList.remove(5);
+        singlelyLinkedList.insert(5);
+        singlelyLinkedList.remove(7);
+        Link current = singlelyLinkedList.getFirst();
         while (current != null) {
             System.out.print(current.getData() + " ");
             current = current.getNext();
