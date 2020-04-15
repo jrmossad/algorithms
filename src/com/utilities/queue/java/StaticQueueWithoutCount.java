@@ -1,17 +1,15 @@
 package com.utilities.queue.java;
 
-public class StaticQueue {
+public class StaticQueueWithoutCount {
 
     private int[] queue;
     private int front;
     private int rear;
-    private int count;
 
-    public StaticQueue(int max) {
-        queue = new int[max];
+    public StaticQueueWithoutCount(int max) {
+        queue = new int[max + 1];
         front = 0;
         rear = -1;
-        count = 0;
     }
 
     public void insert(int item) {
@@ -19,11 +17,10 @@ public class StaticQueue {
             System.out.println("Queue is full");
             return;
         }
-        if (rear == queue.length) {
+        if (rear == queue.length - 1) {
             rear = -1;
         }
         queue[++rear] = item;
-        count++;
     }
 
     public int remove() {
@@ -34,7 +31,6 @@ public class StaticQueue {
         if (front == queue.length) {
             front = 0;
         }
-        count--;
         return item;
     }
 
@@ -45,11 +41,18 @@ public class StaticQueue {
         return queue[front];
     }
 
+    public int size() {
+        if (isEmpty()) {
+            return 0;
+        }
+        return rear >= front ? (rear - front + 1) : ((queue.length - front) + (rear + 1));
+    }
+
     public boolean isEmpty() {
-        return count == 0;
+        return ((rear + 1 == front) || (front + queue.length - 1 == rear));
     }
 
     public boolean isFull() {
-        return count == queue.length;
+        return ((rear + 2 == front) || (front + queue.length - 2 == rear));
     }
 }
