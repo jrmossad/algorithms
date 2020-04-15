@@ -1,6 +1,6 @@
-package com.sorting.java;
+package com.utilities.sorting.java;
 
-import com.utilities.java.ArrayUtilities;
+import com.utilities.arrayUtilitites.java.ArrayUtilities;
 
 public class CountingSort {
 

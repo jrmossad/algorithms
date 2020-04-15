@@ -1,6 +1,6 @@
 package com.twoSum.java;
 
-import com.utilities.java.ArrayUtilities;
+import com.utilities.arrayUtilitites.java.ArrayUtilities;
 
 import java.util.Arrays;
 import java.util.HashMap;

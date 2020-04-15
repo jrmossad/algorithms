@@ -1,4 +1,4 @@
-package com.utilities.java;
+package com.utilities.arrayUtilitites.java;
 
 public class ArrayUtilities {
 

@@ -1,7 +1,7 @@
 package com.validateBST.java;
 
-import com.binarySearchTree.java.BinarySearchTree;
-import com.binarySearchTree.java.Node;
+import com.utilities.binarySearchTree.java.BinarySearchTree;
+import com.utilities.binarySearchTree.java.Node;
 
 public class ValidateBST {
 

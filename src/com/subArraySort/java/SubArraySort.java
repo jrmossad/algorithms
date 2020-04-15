@@ -1,6 +1,6 @@
 package com.subArraySort.java;
 
-import com.utilities.java.ArrayUtilities;
+import com.utilities.arrayUtilitites.java.ArrayUtilities;
 
 public class SubArraySort {
 
