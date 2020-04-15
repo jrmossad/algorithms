@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class BinarySearchTree {
+public class BinaryTree {
 
     private Node root;
     private Queue<Node> nodesQueue;
 
-    public BinarySearchTree() {
+    public BinaryTree() {
         nodesQueue = new LinkedList<>();
         root = null;
     }

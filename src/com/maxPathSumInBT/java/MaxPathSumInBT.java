@@ -1,12 +1,12 @@
 package com.maxPathSumInBT.java;
 
-import com.utilities.binarySearchTree.java.BinarySearchTree;
+import com.utilities.binarySearchTree.java.BinaryTree;
 import com.utilities.binarySearchTree.java.Node;
 
 public class MaxPathSumInBT {
 
     public static void main(String[] args) {
-        BinarySearchTree tree = new BinarySearchTree();
+        BinaryTree tree = new BinaryTree();
         tree.messInsert(1);
         tree.messInsert(2);
         tree.messInsert(3);
@@ -17,7 +17,7 @@ public class MaxPathSumInBT {
         System.out.println(maxPathSumInBT(tree));
     }
 
-    public static int maxPathSumInBT(BinarySearchTree tree) {
+    public static int maxPathSumInBT(BinaryTree tree) {
         return maxPathSumInBTHelper(tree.getRoot())[1];
     }
 

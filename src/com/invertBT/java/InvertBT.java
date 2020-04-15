@@ -1,6 +1,6 @@
 package com.invertBT.java;
 
-import com.utilities.binarySearchTree.java.BinarySearchTree;
+import com.utilities.binarySearchTree.java.BinaryTree;
 import com.utilities.binarySearchTree.java.Node;
 
 import java.util.LinkedList;
@@ -9,7 +9,7 @@ import java.util.Queue;
 public class InvertBT {
 
     public static void main(String[] args) {
-        BinarySearchTree tree = new BinarySearchTree();
+        BinaryTree tree = new BinaryTree();
         tree.insert(10);
         tree.insert(12);
         tree.insert(11);
@@ -25,7 +25,7 @@ public class InvertBT {
         tree.inOrderTraversal();
     }
 
-    public static void invertBTRecursive(BinarySearchTree tree) {
+    public static void invertBTRecursive(BinaryTree tree) {
         invertBRecursiveTHelper(tree.getRoot());
     }
 
@@ -38,7 +38,7 @@ public class InvertBT {
         invertBRecursiveTHelper(current.getRightChild());
     }
 
-    public static void invertBTIterative(BinarySearchTree tree) {
+    public static void invertBTIterative(BinaryTree tree) {
         Queue<Node> nodes = new LinkedList<>();
         nodes.add(tree.getRoot());
         while (nodes.size() != 0) {
