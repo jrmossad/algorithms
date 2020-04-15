@@ -1,7 +1,5 @@
 package com.binarySearchTree.java;
 
-import com.utilities.java.Node;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;

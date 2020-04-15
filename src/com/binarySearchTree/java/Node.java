@@ -1,4 +1,4 @@
-package com.utilities.java;
+package com.binarySearchTree.java;
 
 public class Node {
 

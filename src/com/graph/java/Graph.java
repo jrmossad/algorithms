@@ -1,8 +1,5 @@
 package com.graph.java;
 
-import com.utilities.java.Edge;
-import com.utilities.java.Vertex;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -87,15 +84,15 @@ public class Graph {
         if (start.equals(end)) {
             return path;
         }
-        for(Vertex current : childrenOf(start)) {
-            if(!path.contains(current)) {
-                if(shortest == null || shortest.size() > path.size()) {
+        for (Vertex current : childrenOf(start)) {
+            if (!path.contains(current)) {
+                if (shortest == null || shortest.size() > path.size()) {
                     ArrayList<Vertex> currentPath = new ArrayList<>();
                     for (Vertex vertex : path) {
                         currentPath.add(vertex);
                     }
                     ArrayList<Vertex> newPath = DFS(current, end, currentPath, shortest);
-                    if(newPath != null) {
+                    if (newPath != null) {
                         shortest = newPath;
                     }
                 }
