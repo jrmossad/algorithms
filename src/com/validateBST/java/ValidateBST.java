@@ -1,19 +1,19 @@
 package com.validateBST.java;
 
-import com.utilities.binarySearchTree.java.BinaryTree;
-import com.utilities.binarySearchTree.java.Node;
+import com.utilities.binaryTree.java.BinaryTree;
+import com.utilities.binaryTree.java.Node;
 
 public class ValidateBST {
 
     public static void main(String[] args) {
         BinaryTree tree1 = new BinaryTree();
-        tree1.messInsert(5);
-        tree1.messInsert(7);
-        tree1.messInsert(2);
-        tree1.messInsert(20);
-        tree1.messInsert(21);
-        tree1.messInsert(3);
-        tree1.messInsert(4);
+        tree1.levelInsert(5);
+        tree1.levelInsert(7);
+        tree1.levelInsert(2);
+        tree1.levelInsert(20);
+        tree1.levelInsert(21);
+        tree1.levelInsert(3);
+        tree1.levelInsert(4);
         BinaryTree tree2 = new BinaryTree();
         tree2.insert(5);
         tree2.insert(7);

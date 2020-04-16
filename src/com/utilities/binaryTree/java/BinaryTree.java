@@ -1,4 +1,4 @@
-package com.utilities.binarySearchTree.java;
+package com.utilities.binaryTree.java;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -22,7 +22,7 @@ public class BinaryTree {
         return root;
     }
 
-    public void messInsert(int data) {
+    public void levelInsert(int data) {
         Node newNode = new Node(data);
         newNode.setParent(nodesQueue.isEmpty() ? null : nodesQueue.peek());
         nodesQueue.add(newNode);

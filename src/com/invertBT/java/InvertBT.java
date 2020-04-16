@@ -1,7 +1,7 @@
 package com.invertBT.java;
 
-import com.utilities.binarySearchTree.java.BinaryTree;
-import com.utilities.binarySearchTree.java.Node;
+import com.utilities.binaryTree.java.BinaryTree;
+import com.utilities.binaryTree.java.Node;
 
 import java.util.LinkedList;
 import java.util.Queue;

@@ -1,19 +1,19 @@
 package com.maxPathSumInBT.java;
 
-import com.utilities.binarySearchTree.java.BinaryTree;
-import com.utilities.binarySearchTree.java.Node;
+import com.utilities.binaryTree.java.BinaryTree;
+import com.utilities.binaryTree.java.Node;
 
 public class MaxPathSumInBT {
 
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
-        tree.messInsert(1);
-        tree.messInsert(2);
-        tree.messInsert(3);
-        tree.messInsert(4);
-        tree.messInsert(5);
-        tree.messInsert(6);
-        tree.messInsert(7);
+        tree.levelInsert(1);
+        tree.levelInsert(2);
+        tree.levelInsert(3);
+        tree.levelInsert(4);
+        tree.levelInsert(5);
+        tree.levelInsert(6);
+        tree.levelInsert(7);
         System.out.println(maxPathSumInBT(tree));
     }
 
