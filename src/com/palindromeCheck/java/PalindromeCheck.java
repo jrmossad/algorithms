@@ -3,25 +3,28 @@ package com.palindromeCheck.java;
 public class PalindromeCheck {
 
     public static void main(String[] args) {
-        System.out.println(palindromeCheckRecursive("racecara"));
+        System.out.println(palindromeCheckRecursively("racecara"));
     }
 
-    public static boolean palindromeCheckRecursive(String string) {
-        return palindromeCheckRecursiveHelper(string, 0, string.length() - 1);
+    // O(n) time | O(n) space
+    public static boolean palindromeCheckRecursively(String string) {
+        return palindromeCheckRecursivelyHelper(string, 0, string.length() - 1);
     }
 
-    private static boolean palindromeCheckRecursiveHelper(String string, int i, int j) {
+    private static boolean palindromeCheckRecursivelyHelper(String string, int i, int j) {
         if (i >= j) {
             return true;
         }
-        return string.charAt(i) == string.charAt(j) && palindromeCheckRecursiveHelper(string, i + 1, j - 1);
+        return string.charAt(i) == string.charAt(j) && palindromeCheckRecursivelyHelper(string, i + 1, j - 1);
     }
 
+    // O(n) time | O(n) space
     public static boolean palindromeCheckReverse(String string) {
         String newString = new StringBuilder(string).reverse().toString();
         return string.equals(newString);
     }
 
+    // O(n) time | O(n) space
     public static boolean palindromeCheckReverseArray(String string) {
         char[] reverseString = new char[string.length()];
         int j = 0;
@@ -31,6 +34,7 @@ public class PalindromeCheck {
         return new String(reverseString).equals(string);
     }
 
+    // O(n) time | O(1) space
     public static boolean palindromeCheckOptimized(String string) {
         int i = 0;
         int j = string.length() - 1;
