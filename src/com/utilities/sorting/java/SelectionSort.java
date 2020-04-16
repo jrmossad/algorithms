@@ -9,6 +9,7 @@ public class SelectionSort {
         ArrayUtilities.print1DArray(selectionSortMin(arr));
     }
 
+    // O(n^2) time | O(1)
     public static int[] selectionSortMax(int[] arr) {
         int maximum;
         int temp;
@@ -27,6 +28,7 @@ public class SelectionSort {
         return arr;
     }
 
+    // O(n^2) time | O(1)
     public static int[] selectionSortMin(int[] arr) {
         int minimum;
         int temp;

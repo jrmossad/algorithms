@@ -9,6 +9,7 @@ public class BubbleSort {
         ArrayUtilities.print1DArray(bubbleSort(arr));
     }
 
+    // O(n^2) time | O(1)
     public static int[] bubbleSort(int[] arr) {
         int temp;
         for (int i = 0; i < arr.length - 1; i++) {

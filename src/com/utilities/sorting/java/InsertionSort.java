@@ -10,6 +10,7 @@ public class InsertionSort {
         ArrayUtilities.print1DArray(binarySearchInsertionSort(arr));
     }
 
+    // O(n^2) time | O(1)
     public static int[] vanillaInsertionSort(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
             int temp = arr[i];
@@ -23,6 +24,7 @@ public class InsertionSort {
         return arr;
     }
 
+    // O(n^2) time | O(1)
     public static int[] binarySearchInsertionSort(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
             int temp = arr[i];
