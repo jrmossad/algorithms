@@ -21,24 +21,26 @@ public class InvertBT {
         tree.insert(1);
         tree.insert(4);
         tree.inOrderTraversal();
-        invertBTRecursive(tree);
+        invertBTRecursively(tree);
         tree.inOrderTraversal();
     }
 
-    public static void invertBTRecursive(BinaryTree tree) {
-        invertBRecursiveTHelper(tree.getRoot());
+    // O(n) time | O(log(d))
+    public static void invertBTRecursively(BinaryTree tree) {
+        invertBRecursivelyTHelper(tree.getRoot());
     }
 
-    public static void invertBRecursiveTHelper(Node current) {
+    public static void invertBRecursivelyTHelper(Node current) {
         if (current == null) {
             return;
         }
         swap(current);
-        invertBRecursiveTHelper(current.getLeftChild());
-        invertBRecursiveTHelper(current.getRightChild());
+        invertBRecursivelyTHelper(current.getLeftChild());
+        invertBRecursivelyTHelper(current.getRightChild());
     }
 
-    public static void invertBTIterative(BinaryTree tree) {
+    // O(n) time | O(n)
+    public static void invertBTIteratively(BinaryTree tree) {
         Queue<Node> nodes = new LinkedList<>();
         nodes.add(tree.getRoot());
         while (nodes.size() != 0) {
