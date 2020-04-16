@@ -26,6 +26,7 @@ public class ValidateBST {
         System.out.println(validateBST(tree2));
     }
 
+    // O(n) time | O(d) space
     public static boolean validateBST(BinaryTree tree) {
         return validateBSTHelper(tree.getRoot(), Integer.MAX_VALUE, Integer.MAX_VALUE);
     }
