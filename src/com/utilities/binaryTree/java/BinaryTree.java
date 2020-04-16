@@ -202,6 +202,7 @@ public class BinaryTree {
         return closest;
     }
 
+    // O(n) time | O(n) space
     public ArrayList<Integer> branchSum() {
         ArrayList<Integer> sums = new ArrayList<>();
         branchSumHelper(getRoot(), 0, sums);
