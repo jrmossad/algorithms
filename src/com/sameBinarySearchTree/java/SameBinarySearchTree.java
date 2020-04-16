@@ -28,6 +28,7 @@ public class SameBinarySearchTree {
         System.out.println(sameBSTsOptimized(arrA, arrB));
     }
 
+    // O(n^2) time | O(d)
     public static boolean sameBSTsOptimized(ArrayList<Integer> arrA, ArrayList<Integer> arrB) {
         return sameBSTsOptimizedHelper(arrA, arrB, 0, 0, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
@@ -68,6 +69,7 @@ public class SameBinarySearchTree {
         return -1;
     }
 
+    // O(n^2) time | O(n^2) space
     public static boolean sameBSTs(ArrayList<Integer> arrA, ArrayList<Integer> arrB) {
         if (arrA.size() != arrB.size()) {
             return false;
