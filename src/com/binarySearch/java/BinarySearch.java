@@ -7,6 +7,7 @@ public class BinarySearch {
         System.out.println(binarySearchIteratively(arr, 21));
     }
 
+    // O(log(n)) time | O(1)
     public static int binarySearchIteratively(int[] arr, int target) {
         int lowerBound = 0;
         int upperBound = arr.length - 1;
@@ -25,11 +26,12 @@ public class BinarySearch {
         }
     }
 
-    public static int binarySearchRecursive(int[] arr, int target) {
-        return binarySearchRecursiveHelper(arr, target, 0, arr.length - 1);
+    // O(log(n)) time | O(log(n))
+    public static int binarySearchRecursively(int[] arr, int target) {
+        return binarySearchRecursivelyHelper(arr, target, 0, arr.length - 1);
     }
 
-    public static int binarySearchRecursiveHelper(int[] arr, int target, int lowerBound, int upperBound) {
+    public static int binarySearchRecursivelyHelper(int[] arr, int target, int lowerBound, int upperBound) {
         if (lowerBound > upperBound) {
             return -1;
         }
@@ -38,8 +40,8 @@ public class BinarySearch {
             return target;
         }
         if (arr[middle] > target) {
-            return binarySearchRecursiveHelper(arr, target, lowerBound, middle - 1);
+            return binarySearchRecursivelyHelper(arr, target, lowerBound, middle - 1);
         }
-        return binarySearchRecursiveHelper(arr, target, middle + 1, upperBound);
+        return binarySearchRecursivelyHelper(arr, target, middle + 1, upperBound);
     }
 }
