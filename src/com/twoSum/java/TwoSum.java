@@ -12,7 +12,7 @@ public class TwoSum {
         ArrayUtilities.print1DArray(twoSumIteratively(arr, 8));
     }
 
-// O(n) time | O(n) space
+    // O(n) time | O(n) space
     public static int[] twoSumHashMap(int[] arr, int sum) {
         HashMap<Integer, Boolean> values = new HashMap<>();
         for (int x : arr) {
@@ -25,7 +25,7 @@ public class TwoSum {
         return new int[]{-1};
     }
 
-// O(n^2) time | O(1) space
+    // O(n^2) time | O(1) space
     public static int[] twoSumBruteForce(int[] arr, int sum) {
         int currentSum = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -39,7 +39,7 @@ public class TwoSum {
         return new int[]{-1};
     }
 
-// O(nlog(n)) time | 0(n) space
+    // O(nlog(n)) time | 0(n) space
     public static int[] twoSumRecursively(int[] arr, int sum) {
         Arrays.sort(arr);
         return twoSumHelper(arr, sum, 0, arr.length - 1);
@@ -59,6 +59,7 @@ public class TwoSum {
         return twoSumHelper(arr, sum, ++lowerBound, upperBound);
     }
 
+    // O(nlog(n)) time | O(1) space
     public static int[] twoSumIteratively(int[] arr, int sum) {
         Arrays.sort(arr);
         int lowerBound = 0;

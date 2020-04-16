@@ -160,8 +160,10 @@ public class BinaryTree {
         return searchHelper(data, current.getRightChild());
     }
 
+    // O(log(n)) time | O(log(n)) space if tree is balanced
+    // O(n) time | O(n) space if tree in unbalanced
     public int findClosestValueBSTRecursively(int data) {
-        return findClosestValueBSTRecursivelyHelper(data, getRoot(), getRoot().getData());
+        return findClosestValueBSTRecursivelyHelper(data, getRoot(), Integer.MAX_VALUE);
     }
 
     private int findClosestValueBSTRecursivelyHelper(int data, Node current, int closest) {
@@ -180,9 +182,11 @@ public class BinaryTree {
         }
     }
 
+    // O(log(n)) time | O(1) space if tree is balanced
+    // O(n) time | O(1) space if tree is unbalanced
     public int findClosestValueBSTIteratively(int data) {
         Node current = getRoot();
-        int closest = current.getData();
+        int closest = Integer.MAX_VALUE;
         while (current != null) {
             if (Math.abs((current.getData() - data)) < Math.abs((closest - data))) {
                 closest = current.getData();
