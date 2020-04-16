@@ -14,14 +14,17 @@ public class BinaryTree {
         root = null;
     }
 
+    // O(1) time | O(1) space
     private void setRoot(Node node) {
         root = node;
     }
 
+    // O(1) time | O(1) space
     public Node getRoot() {
         return root;
     }
 
+    // O(1) time | O(n) space
     public void levelInsert(int data) {
         Node newNode = new Node(data);
         newNode.setParent(nodesQueue.isEmpty() ? null : nodesQueue.peek());
@@ -35,13 +38,15 @@ public class BinaryTree {
         }
     }
 
+    // O(log(n)) time | O(1) space if tree is balanced
+    // O(n) time | O(1) space if tree in unbalanced
     public void insert(int data) {
         Node newNode = new Node(data);
         if (getRoot() == null) {
             setRoot(newNode);
         } else {
             Node current = getRoot();
-            Node parent;
+            Node parent = null;
             while (true) {
                 parent = current;
                 if (current.getData() > data) {
@@ -63,6 +68,8 @@ public class BinaryTree {
         }
     }
 
+    // O(log(n)) time | O(1) space if tree is balanced
+    // O(n) time | O(1) space if tree in unbalanced
     public boolean delete(int data) {
         Node current = getRoot();
         Node parent = null;
@@ -123,9 +130,11 @@ public class BinaryTree {
         return successor;
     }
 
+    // O(log(n)) time | O(1) space if tree is balanced
+    // O(n) time | O(1) space if tree in unbalanced
     public Node minimum() {
         Node current = getRoot();
-        Node last = getRoot();
+        Node last = null;
         while (current != null) {
             last = current;
             current = current.getLeftChild();
@@ -133,9 +142,11 @@ public class BinaryTree {
         return last;
     }
 
+    // O(log(n)) time | O(1) space if tree is balanced
+    // O(n) time | O(1) space if tree in unbalanced
     public Node maximum() {
         Node current = getRoot();
-        Node last = getRoot();
+        Node last = null;
         while (current != null) {
             last = current;
             current = current.getRightChild();
@@ -143,6 +154,8 @@ public class BinaryTree {
         return last;
     }
 
+    // O(log(n)) time | O(log(n)) space if tree is balanced
+    // O(n) time | O(n) space if tree in unbalanced
     public boolean search(int data) {
         return searchHelper(data, getRoot());
     }
@@ -222,6 +235,7 @@ public class BinaryTree {
         branchSumHelper(current.getRightChild(), currentSum, sums);
     }
 
+    // O(n) time | O(d) space
     public void inOrderTraversal() {
         inOrderTraversalHelper(getRoot());
         System.out.println();
@@ -236,6 +250,7 @@ public class BinaryTree {
         inOrderTraversalHelper(current.getRightChild());
     }
 
+    // O(n) time | O(d) space
     public void preOrderTraversal() {
         preOrderTraversalHelper(getRoot());
         System.out.println();
@@ -250,6 +265,7 @@ public class BinaryTree {
         preOrderTraversalHelper(current.getRightChild());
     }
 
+    // O(n) time | O(d) space
     public void postOrderTraversal() {
         postOrderTraversalHelper(getRoot());
         System.out.println();
@@ -264,6 +280,7 @@ public class BinaryTree {
         System.out.print(current.getData() + " ");
     }
 
+    // O(n) time | O(1) space
     public void inOrderTraversalIteratively() {
         Node previous = null;
         Node current = getRoot();
