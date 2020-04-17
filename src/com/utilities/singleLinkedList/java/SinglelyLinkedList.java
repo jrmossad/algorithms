@@ -72,14 +72,26 @@ public class SinglelyLinkedList {
         return link;
     }
 
+    // O(n) time | O(1) space
+    public void reverse() {
+        Link current = getFirst();
+        Link previous = null;
+        Link next = null;
+        while (current != null) {
+            next = current.getNext();
+            current.setNext(previous);
+            previous = current;
+            current = next;
+        }
+        setFirst(previous);
+    }
+
     public static void main(String[] args) {
         SinglelyLinkedList singlelyLinkedList = new SinglelyLinkedList();
         singlelyLinkedList.insert(5);
         singlelyLinkedList.insert(6);
         singlelyLinkedList.insert(7);
-        singlelyLinkedList.remove(5);
-        singlelyLinkedList.insert(5);
-        singlelyLinkedList.remove(7);
+        singlelyLinkedList.reverse();
         Link current = singlelyLinkedList.getFirst();
         while (current != null) {
             System.out.print(current.getData() + " ");
