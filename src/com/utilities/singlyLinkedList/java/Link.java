@@ -1,4 +1,4 @@
-package com.utilities.singleLinkedList.java;
+package com.utilities.singlyLinkedList.java;
 
 
 public class Link {

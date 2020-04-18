@@ -31,6 +31,9 @@ public class SmallestSubstringContaining {
             }
             while (uniqueCharacter == maxUniqueCharacter && i <= j) {
                 if (position[1] - position[0] > (j - i)) {
+                    if ((j - i + 1) == smallString.length()) {
+                        return largeString.substring(i, j + 1);
+                    }
                     position[0] = i;
                     position[1] = j;
                 }

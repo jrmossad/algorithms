@@ -1,10 +1,10 @@
-package com.utilities.singleLinkedList.java;
+package com.utilities.singlyLinkedList.java;
 
-public class SinglelyLinkedList {
+public class SinglyLinkedList {
 
     private Link first;
 
-    public SinglelyLinkedList() {
+    public SinglyLinkedList() {
         first = null;
     }
 
@@ -94,34 +94,41 @@ public class SinglelyLinkedList {
     }
 
     // O(n) time | O(1) space
-    public Link getElementFromEnd(int position) {
+    public Link removeNthElementFromEnd(int position) {
         Link slowPointer = getFirst();
         Link fastPointer = getFirst();
+        Link previous = null;
         int i = 0;
-        while (fastPointer != null & i < position) {
+        while (fastPointer != null && i < position) {
             fastPointer = fastPointer.getNext();
             i++;
         }
-        if (fastPointer == null) {
+        if (i != position && fastPointer == null) {
             return null;
         }
         while (fastPointer != null) {
+            previous = slowPointer;
             slowPointer = slowPointer.getNext();
             fastPointer = fastPointer.getNext();
+        }
+        if (slowPointer == getFirst()) {
+            setFirst(slowPointer.getNext());
+        } else {
+            previous.setNext(slowPointer.getNext());
         }
         return slowPointer;
     }
 
     public static void main(String[] args) {
-        SinglelyLinkedList singlelyLinkedList = new SinglelyLinkedList();
-        singlelyLinkedList.insert(5);
-        singlelyLinkedList.insert(6);
-        singlelyLinkedList.insert(7);
-        singlelyLinkedList.insert(8);
-        singlelyLinkedList.insert(9);
-        Link element = singlelyLinkedList.getElementFromEnd(3);
+        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+        singlyLinkedList.insert(5);
+        singlyLinkedList.insert(6);
+        singlyLinkedList.insert(7);
+        singlyLinkedList.insert(8);
+        singlyLinkedList.insert(9);
+        Link element = singlyLinkedList.removeNthElementFromEnd(3);
         System.out.println(element.getData());
-        Link current = singlelyLinkedList.getFirst();
+        Link current = singlyLinkedList.getFirst();
         while (current != null) {
             System.out.print(current.getData() + " ");
             current = current.getNext();
