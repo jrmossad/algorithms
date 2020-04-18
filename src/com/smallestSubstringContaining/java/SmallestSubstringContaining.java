@@ -10,7 +10,7 @@ public class SmallestSubstringContaining {
         System.out.println(smallestSubstringContaining(smallString, largeString));
     }
 
-    // O(S1 + S2) time | O(S1 + S2) space
+    // O(n + m) time | O(n + m) space
     public static String smallestSubstringContaining(String smallString, String largeString) {
         HashMap<Character, Integer> neededCharacters = getUniqueCharactersCount(smallString);
         HashMap<Character, Integer> currentCharacters = new HashMap<>();
