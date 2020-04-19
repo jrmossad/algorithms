@@ -9,6 +9,9 @@ public class LongestPalindromicSubstring {
 
     // O(n^2) time | O(1) space
     public static String longestPalindromicSubstring(String str) {
+        if (str.length() == 0) {
+            return "";
+        }
         int[] longest = new int[]{0, 1};
         int[] oddCut;
         int[] evenCut;
