@@ -12,14 +12,12 @@ public class KadanesAlgorithm {
         if (arr.length == 0) {
             return -1;
         }
-        int lastMax = 0;
-        int max = 0;
-        for (int i = 0; i < arr.length; i++) {
+        int lastMax = arr[0];
+        int max = arr[0];
+        for (int i = 1; i < arr.length; i++) {
             int current = arr[i];
             lastMax = Math.max(current, lastMax + current);
-            if (lastMax > max) {
-                max = lastMax;
-            }
+            max = Math.max(lastMax, max);
         }
         return max;
     }
