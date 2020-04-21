@@ -12,6 +12,7 @@ public class MaxStack<T extends Comparable> {
         stack = new ArrayList<>();
     }
 
+    // O(n) time | O(n) space
     public void push(T item) {
         MinStack<T> helper = new MinStack<>();
         while (!isEmpty() && peak().compareTo(item) >= 0) {
@@ -23,6 +24,7 @@ public class MaxStack<T extends Comparable> {
         }
     }
 
+    // O(1) time | O(1) space
     public T pop() {
         if (isEmpty()) {
             return null;
@@ -30,6 +32,7 @@ public class MaxStack<T extends Comparable> {
         return stack.remove(stack.size() - 1);
     }
 
+    // O(1) time | O(1) space
     public T peak() {
         if (isEmpty()) {
             return null;
@@ -37,6 +40,7 @@ public class MaxStack<T extends Comparable> {
         return stack.get(stack.size() - 1);
     }
 
+    // O(1) time | O(1) space
     public boolean isEmpty() {
         return stack.isEmpty();
     }

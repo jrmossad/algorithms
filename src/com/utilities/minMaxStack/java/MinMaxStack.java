@@ -12,6 +12,7 @@ public class MinMaxStack {
         minMax = new ArrayList<>();
     }
 
+    // O(1) time | O(1) space
     public void push(int item) {
         int[] currentMnMax = null;
         if (!isEmpty()) {
@@ -25,6 +26,7 @@ public class MinMaxStack {
         stack.add(item);
     }
 
+    // O(1) time | O(1) space
     public int pop() {
         if (isEmpty()) {
             return -1;
@@ -33,6 +35,7 @@ public class MinMaxStack {
         return stack.remove(stack.size() - 1);
     }
 
+    // O(1) time | O(1) space
     public int getMin() {
         if (isEmpty()) {
             return -1;
@@ -40,6 +43,7 @@ public class MinMaxStack {
         return minMax.get(stack.size() - 1)[0];
     }
 
+    // O(1) time | O(1) space
     public int getMax() {
         if (isEmpty()) {
             return -1;
@@ -47,6 +51,7 @@ public class MinMaxStack {
         return minMax.get(stack.size() - 1)[1];
     }
 
+    // O(1) time | O(1) space
     public int peak() {
         if (isEmpty()) {
             return -1;
@@ -54,6 +59,7 @@ public class MinMaxStack {
         return stack.get(stack.size() - 1);
     }
 
+    // O(1) time | O(1) space
     public boolean isEmpty() {
         return stack.isEmpty();
     }
